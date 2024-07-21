@@ -62,6 +62,6 @@ public class OptionController {
     public ResponseEntity<String> deleteOptionFromGift(@PathVariable("giftId") Long giftId,
                                                        @PathVariable("optionId") Long optionId) {
         optionService.deleteOptionFromGift(giftId, optionId);
-        return ResponseEntity.status(HttpStatus.NO_CONTENT).body(giftId + "번 상품에서" + optionId + "번 옵션이 삭제되었습니다!");
+        return ResponseEntity.noContent().build();
     }
 }

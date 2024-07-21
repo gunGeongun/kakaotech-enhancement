@@ -56,7 +56,7 @@ public class WishListController {
     public ResponseEntity<String> removeGiftFromCart(@RequestAttribute("user") User user,
                                                      @PathVariable Long giftId) {
         wishService.removeGiftFromUser(user.getId(), giftId);
-        return ResponseEntity.status(HttpStatus.NO_CONTENT).body("카트에서 상품이 삭제되었습니다.");
+        return ResponseEntity.noContent().build();
 
     }
 
