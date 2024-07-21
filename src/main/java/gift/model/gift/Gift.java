@@ -6,8 +6,7 @@ import gift.model.wish.Wish;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 @Entity
 @Table(name = "gift")
@@ -101,6 +100,12 @@ public class Gift {
         this.imageUrl = imageUrl;
         this.category = category;
     }
+
+    public boolean hasOption(Long optionId) {
+        return options.stream()
+                .anyMatch(option -> option.getId().equals(optionId));
+    }
+
 
     public void addOption(Option option) {
         option.setGift(this);
